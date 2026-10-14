@@ -1,0 +1,6 @@
+# 构建产物（不参与版本管理）
+runtime_src/bin/
+runtime_src/obj/
+__pycache__/
+*.log
+*.pdb

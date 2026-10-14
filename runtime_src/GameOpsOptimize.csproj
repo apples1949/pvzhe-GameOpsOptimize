@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <AssemblyName>GameOpsOptimize</AssemblyName>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <NoWarn>CS0169;CS0414;CS0649;CS8632;CS0108;CS0162;CS0219;CS0067</NoWarn>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="GameOpsOptimizeEntry.cs" />
+    <Compile Include="TapFeedbackPart.cs" />
+    <Compile Include="MobileUxFixesPart.cs" />
+    <Compile Include="..\..\QrCodeBitmap.cs" Link="QrCodeBitmap.cs" />
+    <Compile Include="..\..\SponsorQrInjector.cs" Link="SponsorQrInjector.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GodotSharp"><HintPath>$(GodotRefDir)\GodotSharp.dll</HintPath></Reference>
+    <Reference Include="PlantsVsZombies"><HintPath>$(GodotRefDir)\PlantsVsZombies.dll</HintPath></Reference>
+  </ItemGroup>
+</Project>
