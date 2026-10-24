@@ -14,8 +14,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GameOpsOptimizeEntry.cs" />
-    <Compile Include="TapFeedbackPart.cs" />
-    <Compile Include="MobileUxFixesPart.cs" />
+    <Compile Include="AutoCollectPart.cs" />
+    <Compile Include="ScrollTunePart.cs" />
     <Compile Include="..\..\QrCodeBitmap.cs" Link="QrCodeBitmap.cs" />
     <Compile Include="..\..\SponsorQrInjector.cs" Link="SponsorQrInjector.cs" />
   </ItemGroup>

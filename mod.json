@@ -1,117 +1,22 @@
 {
   "schemaVersion": 2,
   "id": "gameopsoptimize",
-  "name": "游戏操作场景优化",
-  "version": "2.0.0",
+  "name": "自动拾取开关与滚动条设置",
+  "version": "2.1.0",
   "author": "apples1949",
-  "description": "手机端「操作场景」的一站式优化：**点击更跟手、拾取更省心、滚动更顺手**。\n由原「手机操作优化」与「点击反馈与自动拾取」合并而成（两者已废弃，请只装本包）。\n\n【操作修正】\n· 点空处取消拿卡/铲子：拿着植物卡或铲子时，点空草坪/天空即取消当前选择（游戏原生只管卡片，铲子不取消）。\n· 滚动条优化：加宽滚动条，轨道/滑块的**颜色、宽度、透明度**都可调（取色器选 RGB）。\n\n【点击反馈与自动拾取】\n· 点击反馈：点击菜单/卡牌等元素时给出即时视觉反馈，避免「点没点上」的疑惑。\n· 自动拾取：阳光与金币自动收入，不必逐个点。\n\n所有开关都在「Mod 配置」里，改完立即生效、无需重启。",
+  "description": "只做两件事：**自动拾取开关**（阳光 / 金币，开=自动收、关=手动点，商店购买状态跟着同步）+ **滚动条设置**（加宽滚动条，轨道/滑块的**颜色、宽度、透明度**都能调，取色器选 RGB）。\n两项都在「Mod 配置」里改，改完立即生效、无需重启。\n★ 本版（2.1.0）已**删除**原「点空处取消拿卡/铲子」与「点击反馈」两项功能，Mod 也随之改名为「自动拾取开关与滚动条设置」。",
+  "playInstructions": "1. 自动拾取：选项 → Mod 管理 → 自动拾取开关与滚动条设置 → 配置 →「自动拾取（阳光）/（金币）」开或关。\n   · 开 = 阳光/金币自动收入，且商店里该商品显示已购买；关 = 手动点，商店里重新显示可购买。\n   · 在商店里买了这两件商品 ⇒ 配置会自动变成「开」，不会抹掉你花钱买的状态。\n2. 滚动条：同一配置页的「滚动条」一栏调粗细、轨道/滑块颜色与不透明度；改完立即重刷，不用重启。\n3. 两项互不影响，可以只开其中一项。",
   "dependencies": [],
   "conflicts": [],
   "provides": {},
   "overrides": {},
   "scripts": [],
-  "runtimeAssembly": "Runtime/ModAssembly.dll",
-  "runtimeEntryType": "GameOpsOptimizeEntry",
-  "runtimeApiVersion": 3,
-  "runtimeAssemblyPolicy": "optional",
-  "blueprints": [],
-  "translations": [],
-  "resources": [
-    "Resources/SponsorQR.png",
-    "Runtime/ModAssembly.dll"
-  ],
   "settings": [
-    {
-      "key": "fixPickCancel",
-      "type": "bool",
-      "label": "铲子未选到植物时自动取消",
-      "group": "滚动条",
-      "description": "拿铲子点下去，如果落点没有可铲的植物（空草坪/天空/草坪外），自动收起铲子，不必再点一次图标。点植物上仍然正常铲除。",
-      "applyMode": "immediate",
-      "affectsGameplay": false,
-      "default": true
-    },
-    {
-      "key": "scrollTune",
-      "type": "bool",
-      "default": true,
-      "description": "总开关：加宽滚动条 + 配色。关掉即完全还原引擎默认外观。",
-      "label": "滚动条优化",
-      "applyMode": "immediate",
-      "affectsGameplay": false,
-      "group": "滚动条"
-    },
-    {
-      "key": "scrollWidth",
-      "type": "int",
-      "default": 24,
-      "min": 8,
-      "max": 48,
-      "description": "滚动条粗细（像素）。引擎默认 12；触屏建议 20~28。",
-      "label": "滚动条宽度",
-      "applyMode": "immediate",
-      "affectsGameplay": false,
-      "group": "滚动条"
-    },
-    {
-      "key": "scrollColor",
-      "type": "color",
-      "default": "#000000",
-      "description": "轨道（底槽）颜色。用取色器选 RGB；配合下面的「滚动条透明度」控制浓淡。",
-      "label": "滚动条颜色",
-      "applyMode": "immediate",
-      "affectsGameplay": false,
-      "group": "滚动条"
-    },
-    {
-      "key": "scrollAlpha",
-      "type": "int",
-      "default": 8,
-      "min": 0,
-      "max": 100,
-      "description": "上面那个颜色的不透明度（%）。默认 8% 很淡，只留一道隐约可见的槽。",
-      "label": "滚动条透明度",
-      "applyMode": "immediate",
-      "affectsGameplay": false,
-      "group": "滚动条"
-    },
-    {
-      "key": "grabberColor",
-      "type": "color",
-      "default": "#2A6B42",
-      "description": "拖动块（滑块）颜色，取色器里连透明度一起选。",
-      "label": "滑块颜色",
-      "applyMode": "immediate",
-      "affectsGameplay": false,
-      "group": "滚动条"
-    },
-    {
-      "key": "grabberWidth",
-      "type": "int",
-      "default": 0,
-      "min": 0,
-      "max": 48,
-      "description": "拖动块粗细（像素）。0 = 跟随滚动条宽度；填得比滚动条宽会自动钳到滚动条宽度。",
-      "label": "滑块宽度",
-      "applyMode": "immediate",
-      "affectsGameplay": false,
-      "group": "滚动条"
-    },
-    {
-      "key": "fixPressVisual",
-      "type": "bool",
-      "label": "章节/关卡入口点击反馈",
-      "group": "滚动条",
-      "description": "在章节选择 / 关卡入口等处点击时给出即时视觉反馈，避免“点没点上”的疑惑。",
-      "applyMode": "immediate",
-      "affectsGameplay": false,
-      "default": true
-    },
     {
       "key": "fixAutoCollectSun",
       "type": "bool",
       "label": "自动拾取（阳光）",
-      "group": "滚动条",
+      "group": "自动拾取",
       "default": true,
       "description": "开 = 自动拾取阳光（同时商店里该商品显示为已购买）；关 = 不自动拾取（商店里会重新显示可购买）。改完立即生效，无需重启。",
       "applyMode": "immediate",
@@ -121,9 +26,75 @@
       "key": "fixAutoCollectCoin",
       "type": "bool",
       "label": "自动拾取（金币）",
-      "group": "滚动条",
+      "group": "自动拾取",
       "default": true,
       "description": "开 = 自动拾取金币（同时商店里该商品显示为已购买）；关 = 不自动拾取（商店里会重新显示可购买）。改完立即生效，无需重启。",
+      "applyMode": "immediate",
+      "affectsGameplay": false
+    },
+    {
+      "key": "scrollTune",
+      "type": "bool",
+      "label": "滚动条优化",
+      "group": "滚动条",
+      "default": true,
+      "description": "总开关：加宽滚动条 + 配色。关掉即完全还原引擎默认外观。",
+      "applyMode": "immediate",
+      "affectsGameplay": false
+    },
+    {
+      "key": "scrollWidth",
+      "type": "int",
+      "label": "滚动条宽度",
+      "group": "滚动条",
+      "default": 24,
+      "min": 8,
+      "max": 48,
+      "description": "滚动条粗细（像素）。引擎默认 12；触屏建议 20~28。",
+      "applyMode": "immediate",
+      "affectsGameplay": false
+    },
+    {
+      "key": "scrollColor",
+      "type": "color",
+      "label": "滚动条颜色",
+      "group": "滚动条",
+      "default": "#000000",
+      "description": "轨道（底槽）颜色。用取色器选 RGB；配合下面的「滚动条透明度」控制浓淡。",
+      "applyMode": "immediate",
+      "affectsGameplay": false
+    },
+    {
+      "key": "scrollAlpha",
+      "type": "int",
+      "label": "滚动条透明度",
+      "group": "滚动条",
+      "default": 8,
+      "min": 0,
+      "max": 100,
+      "description": "上面那个颜色的不透明度（%）。默认 8% 很淡，只留一道隐约可见的槽。",
+      "applyMode": "immediate",
+      "affectsGameplay": false
+    },
+    {
+      "key": "grabberColor",
+      "type": "color",
+      "label": "滑块颜色",
+      "group": "滚动条",
+      "default": "#2A6B42",
+      "description": "拖动块（滑块）颜色，取色器里连透明度一起选。",
+      "applyMode": "immediate",
+      "affectsGameplay": false
+    },
+    {
+      "key": "grabberWidth",
+      "type": "int",
+      "label": "滑块宽度",
+      "group": "滚动条",
+      "default": 0,
+      "min": 0,
+      "max": 48,
+      "description": "拖动块粗细（像素）。0 = 跟随滚动条宽度；填得比滚动条宽会自动钳到滚动条宽度。",
       "applyMode": "immediate",
       "affectsGameplay": false
     },
@@ -131,25 +102,35 @@
       "key": "enableLog",
       "type": "bool",
       "label": "写排查日志",
-      "group": "滚动条",
+      "group": "诊断",
+      "default": false,
       "description": "输出诊断日志（排查问题时才需要开）。",
       "applyMode": "immediate",
-      "affectsGameplay": false,
-      "default": false
+      "affectsGameplay": false
     },
     {
       "key": "aboutChangelog",
       "type": "text",
       "label": "更新历史",
-      "content": "════════ v1.4.0 · 2026-10-14（合并版）════════\n本 Mod 由原「手机操作优化」与「点击反馈与自动拾取」**合并**而来，功能与设置项完全保留。\n合并原因：两者都在修正手机上的同一批操作场景（点击/拾取/滚动），分成两个包反而容易互相干扰、\n设置也分散在两处；合并后**一个包、一处配置**，且共用同一套日志与更新记录。\n· 逻辑未改动：两套实现各自独立运行（各自挂 process_frame），互不干扰。\n· 设置项合并为一个列表：操作修正（点空处取消 / 滚动条优化）+ 点击反馈与自动拾取。\n\n──────────────── 原「手机操作优化」历史 ────────────────\nv1.3.0 · 2026-10-13（按用户需求）\n① 删除「滑动误选撤销」（fixScrollMisPick）与「Mod 列表拖动滚动」（fixModListDrag）。\n② 并入原独立 Mod「滚动条优化」的全部能力，并做成 6 项配置：\n   功能开关 / 滚动条颜色 / 滚动条宽度 / 滚动条透明度 / 滑块颜色 / 滑块宽度（不得宽过滚动条）。\n③ 保留「点空处取消当前拿着的卡片/铲子」（fixPickCancel）——游戏原生只管卡片，铲子不取消。\n④ 实现仍是**纯事件驱动**：启动扫一次 + NodeAdded/NodeRemoved 信号，不挂任何逐帧回调。\n\nv1.2.0 · 当前版本\n（更早的历史记录未保留）\n\n──────────────── 原「点击反馈与自动拾取」历史 ────────────────\nv1.3.0 · 2026-10-12\n修复「配置和实际对不上」：删掉「没在商店买过就不许开」的旧门槛（它会让配置开着也完全不生效，存档里 SunCollect/CoinCollect 恒为 0、商店显示可购买）；改为配置开关直接控制游戏内的那个值，并每 30 帧（约 1 秒）对齐一次——配置关掉，商店里会回到可购买；若你在商店里现买，配置会自动变成开（且绝不抹掉已购买状态）。顺带修好场上已生成阳光/金币的同步（原来按类名精确匹配，漏掉了全部子类）。\n已知：商店界面要翻一页或重开才会刷新显示。\nv1.2.0 · 2026-10-11\n配置开关 = 功能本体；图鉴-工具页的开关框整个移除（配置页就是总开关）。\n（更早略）",
-      "group": "滚动条"
+      "group": "关于",
+      "content": "v2.1.0 · 2026-10-23（改名 + 瘦身）\n本 Mod 由「游戏操作场景优化」改名为「自动拾取开关与滚动条设置」。\n· 删除「点空处取消拿卡/铲子」（原 fixPickCancel）与「点击反馈」（原 fixPressVisual）两项功能，代码一并移除（原 MobileUxFixesPart.cs / TapFeedbackPart.cs 重写为 ScrollTunePart.cs / AutoCollectPart.cs）。\n· 配置项相应精简为：自动拾取（阳光）/（金币）+ 滚动条 6 项；分组从混在一起的「滚动条」拆成「自动拾取 / 滚动条 / 诊断 / 关于」。\n· 自动拾取与滚动条两块逻辑本身**一行未改**，只是搬文件 + 去掉另一块。\n· 适配游戏 0.31.0 重新编译。\n\n──────────── 合并版历史 ────────────\nv1.4.0 · 2026-10-14（合并版）\n本 Mod 由原「手机操作优化」与「点击反馈与自动拾取」合并而来，功能与设置项完全保留。\nv1.3.0 · 2026-10-13（按用户需求）\n① 删除「滑动误选撤销」（fixScrollMisPick）与「Mod 列表拖动滚动」（fixModListDrag）。\n② 并入原独立 Mod「滚动条优化」的全部能力，做成 6 项配置。\n③ 保留「点空处取消当前拿着的卡片/铲子」。\n\n──────────── 自动拾取历史 ────────────\nv1.3.0 · 2026-10-12：去掉「没在商店买过就不许开」的门槛；改为配置开关直接控制游戏内那个值，并每 30 帧对齐一次。\nv1.2.0 · 2026-10-11：配置开关 = 功能本体；图鉴工具页的开关框整个移除。\n（更早略）"
     },
     {
       "key": "aboutAuthor",
       "type": "richtext",
       "label": "作者与链接",
-      "content": "作者：apple1949\n开发中，请勿冒用发布。\n（本 Mod 合并自「手机操作优化」与「点击反馈与自动拾取」）",
-      "group": "滚动条"
+      "group": "关于",
+      "content": "自动拾取开关与滚动条设置 v2.1.0 · 作者：apple1949\n\n[url=https://space.bilibili.com/186773722]B 站空间[/url]\n[url=https://apples1949.lanzouc.com/b007uuknqd]蓝奏云下载（密码 762b）[/url]\n\n本模组为玩家自制 Mod，与《植物大战僵尸杂交重制版》官方无隶属关系。\n赞助：微信扫码支持作者（见下方收款码图片）。"
     }
+  ],
+  "runtimeAssembly": "Runtime/ModAssembly.dll",
+  "runtimeEntryType": "GameOpsOptimizeEntry",
+  "runtimeApiVersion": 3,
+  "runtimeAssemblyPolicy": "optional",
+  "blueprints": [],
+  "translations": [],
+  "resources": [
+    "Resources/SponsorQR.png",
+    "Runtime/ModAssembly.dll"
   ]
 }
